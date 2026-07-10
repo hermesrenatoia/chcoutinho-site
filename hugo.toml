@@ -1,0 +1,240 @@
+baseURL = "https://chcoutinho.com/"
+title = "Chris Coutinho"
+theme = "hugo-coder"
+locale = "pt-br"  # renomeado de "languageCode" (deprecado desde Hugo v0.158.0)
+defaultContentLanguage = "pt-br"  # AJUSTAR: troquei de "en" pra "pt-br" pois o conteúdo parece ser em português. Se quiser inglês como padrão, volte para "en".
+enableEmoji = true
+
+[pagination]
+pagerSize = 6
+
+[services]
+[services.disqus]
+# Comentários via Disqus desativados por padrão.
+# Se ativar: Disqus carrega JS de terceiro (disqus.com) que rastreia visitantes.
+# Se ativar, lembre de liberar disqus.com no CSP (params.csp abaixo) e na Cloudflare Transform Rule.
+# shortname = "yourdiscussshortname"
+
+[markup]
+[markup.highlight]
+noClasses = false
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+# SEGURANÇA: alterado de "true" para "false" (padrão seguro do Hugo).
+# "true" permite HTML bruto dentro do Markdown, renderizado sem sanitização —
+# risco de XSS caso algum dia você cole conteúdo de terceiros sem revisar,
+# ou aceite posts/PRs de outra pessoa no repositório.
+# Só volte para "true" se tiver certeza que precisa de HTML bruto nos posts
+# e que você é o único a escrever conteúdo.
+unsafe = false
+
+[params]
+author = "Christian Coutinho"  # AJUSTAR se preferir outro nome de exibição
+# license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
+description = "Site pessoal de Christian Coutinho"  # AJUSTAR
+keywords = "CISO,cybersecurity,pessoal"
+info = ["Cybersecurity Professional"]
+avatarURL = "images/avatar.jpg"  # arquivo real fica em static/images/avatar.jpg (partial usa relURL direto, sem pipeline de assets)
+#gravatar = "seu-email@exemplo.com"
+# Fallback temporário: o exampleSite do tema não trouxe apple-touch-icon (180x180)
+# nem safari-pinned-tab (SVG monocromático) prontos. Apontando pros favicons que
+# já existem, pra não dar 404, até você gerar versões dedicadas do seu avatar.
+touchicon = "/images/favicon-32x32.png"
+mask_icon = "/images/favicon.svg"
+dateFormat = "January 2, 2006"
+since = 2026  # AJUSTAR: ano de início do site/blog
+# Git Commit in Footer — desativado.
+# A linha original apontava para o repositório do AUTOR DO TEMA (luizdepra), não o seu.
+# Se quiser reativar, use a URL do SEU repositório:
+# commit = "https://gitlab.com/SEU-USUARIO/chcoutinho-site/tree/"
+rtl = false
+colorScheme = "auto"
+hideColorSchemeToggle = false
+maxSeeAlsoItems = 5
+customCSS = []
+customSCSS = []
+customJS = []
+customRemoteJS = []
+
+# Nenhum serviço de analytics ativado — mantém o site sem rastreamento de terceiros
+# e o CSP mais restritivo abaixo. Se quiser ativar algum no futuro
+# (ex: Umami ou Plausible self-hosted são as opções mais respeitosas de privacidade),
+# lembre de liberar o domínio correspondente no CSP e na Cloudflare.
+
+# SEGURANÇA: CSP ativado por padrão, restritivo (só recursos do próprio site).
+# Isso gera uma tag <meta http-equiv="Content-Security-Policy"> no HTML.
+# Nota: <meta> CSP não suporta "frame-ancestors" nem "report-uri" — por isso,
+# mantenha também a Cloudflare Transform Rule com os mesmos valores como
+# cabeçalho HTTP real (mais robusto, complementa esta camada).
+[params.csp]
+childsrc = ["'self'"]
+fontsrc = ["'self'"]
+formaction = ["'self'"]
+framesrc = ["'none'"]
+imgsrc = ["'self'"]
+objectsrc = ["'none'"]
+prefetchsrc = ["'self'"]
+stylesrc = ["'self'", "'unsafe-inline'"]
+scriptsrc = ["'self'"]
+connectsrc = ["'self'"]
+
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "fa-brands fa-linkedin fa-2x"
+weight = 1
+url = "https://www.linkedin.com/in/christian-coutinho"
+
+# Os links abaixo (GitHub, Gitlab, Twitter/X, Medium) estavam com placeholders
+# "johndoe" do template original — comentados até você confirmar os handles reais.
+# Descomente e ajuste a URL de cada um que quiser exibir.
+
+# [[params.social]]
+# name = "Github"
+# icon = "fa-brands fa-github fa-2x"
+# weight = 2
+# url = "https://github.com/SEU-USUARIO/"
+
+# [[params.social]]
+# name = "Gitlab"
+# icon = "fa-brands fa-gitlab fa-2x"
+# weight = 3
+# url = "https://gitlab.com/SEU-USUARIO/"
+
+[[params.social]]
+name = "Twitter"
+icon = "fa-brands fa-x-twitter fa-2x"
+weight = 4
+url = "https://twitter.com/chrcoutinho/"
+
+# [[params.social]]
+# name = "Medium"
+# icon = "fa-brands fa-medium fa-2x"
+# weight = 5
+# url = "https://medium.com/@SEU-USUARIO"
+
+[[params.social]]
+name = "RSS"
+icon = "fa-solid fa-rss fa-2x"
+weight = 6
+url = "https://chcoutinho.com/index.xml"  # corrigido: era "myhugosite.com" (placeholder do exemplo)
+rel = "alternate"
+type = "application/rss+xml"
+
+[languages.pt-br]
+label = ":brazil:"
+title = "Chris Coutinho"
+
+[languages.pt-br.params]
+author = "Christian Coutinho"
+info = "Cybersecurity Professional"  # AJUSTAR
+description = "Site pessoal de Christian Coutinho"  # AJUSTAR
+keywords = "CISO,cybersecurity,pessoal"
+
+[[languages.pt-br.menu.main]]
+name = "Sobre"
+weight = 1
+url = "about/"
+
+[[languages.pt-br.menu.main]]
+name = "Experiência"
+weight = 2
+url = "experience/"
+
+[[languages.pt-br.menu.main]]
+name = "Blog"
+weight = 3
+url = "posts/"
+
+[[languages.pt-br.menu.main]]
+name = "Projetos"
+weight = 4
+url = "projects/"
+
+[[languages.pt-br.menu.main]]
+name = "Contato"
+weight = 5
+url = "contact/"
+
+[languages.en]
+label = ":uk:"
+title = "Chris Coutinho"
+
+[languages.en.params]
+author = "Christian Coutinho"
+info = "Cybersecurity Professional"
+description = "Christian Coutinho's personal website"
+keywords = "CISO,cybersecurity,personal"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
+
+[[languages.en.menu.main]]
+name = "Experience"
+weight = 2
+url = "experience/"
+
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 3
+url = "posts/"
+
+[[languages.en.menu.main]]
+name = "Projects"
+weight = 4
+url = "projects/"
+
+[[languages.en.menu.main]]
+name = "Contact"
+weight = 5
+url = "contact/"
+
+[languages.es]
+label = ":es:"
+title = "Chris Coutinho"
+
+[languages.es.params]
+author = "Christian Coutinho"
+info = "Profesional en Ciberseguridad"
+description = "Sitio personal de Christian Coutinho"
+keywords = "CISO,ciberseguridad,personal"
+
+[[languages.es.menu.main]]
+name = "Sobre mí"
+weight = 1
+url = "about/"
+
+[[languages.es.menu.main]]
+name = "Experiencia"
+weight = 2
+url = "experience/"
+
+[[languages.es.menu.main]]
+name = "Blog"
+weight = 3
+url = "posts/"
+
+[[languages.es.menu.main]]
+name = "Proyectos"
+weight = 4
+url = "projects/"
+
+[[languages.es.menu.main]]
+name = "Contacto"
+weight = 5
+url = "contact/"
+
+# NOTA: menus e metadados dos 3 idiomas (pt-br, en, es) já estão prontos.
+# O CONTEÚDO (posts, about, projects) ainda existe só no idioma em que você
+# escrever cada arquivo. Sem tradução do conteúdo, um visitante que mudar
+# pro idioma en/es vai ver menu traduzido mas páginas em branco/404 até
+# você criar os arquivos correspondentes (ex: content/en/about.md,
+# content/es/about.md). Ver seção abaixo sobre estrutura de conteúdo.

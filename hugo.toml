@@ -5,6 +5,120 @@ locale = "pt-br"  # renomeado de "languageCode" (deprecado desde Hugo v0.158.0)
 defaultContentLanguage = "pt-br"  # AJUSTAR: troquei de "en" pra "pt-br" pois o conteúdo parece ser em português. Se quiser inglês como padrão, volte para "en".
 enableEmoji = true
 
+# Blocos [languages.*] posicionados logo no topo, antes de [pagination]/[params]/etc.
+# Isso corrige um bug conhecido do Hugo em setups multilíngues com contentDir por
+# idioma: se os blocos de idioma não vierem cedo no arquivo, funções como
+# .Site.Menus podem resolver o contexto de idioma errado em páginas internas
+# (o conteúdo vem certo, mas o menu do topo troca pro idioma padrão).
+
+[languages.pt-br]
+label = ":brazil:"
+title = "Chris Coutinho"
+contentDir = "content/pt-br"
+
+[languages.pt-br.params]
+author = "Christian Coutinho"
+info = "Cybersecurity Professional"  # AJUSTAR
+description = "Site pessoal de Christian Coutinho"  # AJUSTAR
+keywords = "CISO,cybersecurity,pessoal"
+
+[[languages.pt-br.menu.main]]
+name = "Sobre"
+weight = 1
+url = "about/"
+
+[[languages.pt-br.menu.main]]
+name = "Experiência"
+weight = 2
+url = "experience/"
+
+[[languages.pt-br.menu.main]]
+name = "Blog"
+weight = 3
+url = "posts/"
+
+[[languages.pt-br.menu.main]]
+name = "Projetos"
+weight = 4
+url = "projects/"
+
+[[languages.pt-br.menu.main]]
+name = "Contato"
+weight = 5
+url = "contact/"
+
+[languages.en]
+label = ":uk:"
+title = "Chris Coutinho"
+contentDir = "content/en"
+
+[languages.en.params]
+author = "Christian Coutinho"
+info = "Cybersecurity Professional"
+description = "Christian Coutinho's personal website"
+keywords = "CISO,cybersecurity,personal"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
+
+[[languages.en.menu.main]]
+name = "Experience"
+weight = 2
+url = "experience/"
+
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 3
+url = "posts/"
+
+[[languages.en.menu.main]]
+name = "Projects"
+weight = 4
+url = "projects/"
+
+[[languages.en.menu.main]]
+name = "Contact"
+weight = 5
+url = "contact/"
+
+[languages.es]
+label = ":es:"
+title = "Chris Coutinho"
+contentDir = "content/es"
+
+[languages.es.params]
+author = "Christian Coutinho"
+info = "Profesional en Ciberseguridad"
+description = "Sitio personal de Christian Coutinho"
+keywords = "CISO,ciberseguridad,personal"
+
+[[languages.es.menu.main]]
+name = "Sobre mí"
+weight = 1
+url = "about/"
+
+[[languages.es.menu.main]]
+name = "Experiencia"
+weight = 2
+url = "experience/"
+
+[[languages.es.menu.main]]
+name = "Blog"
+weight = 3
+url = "posts/"
+
+[[languages.es.menu.main]]
+name = "Proyectos"
+weight = 4
+url = "projects/"
+
+[[languages.es.menu.main]]
+name = "Contacto"
+weight = 5
+url = "contact/"
+
 [pagination]
 pagerSize = 6
 
@@ -89,7 +203,7 @@ author = "authors"
 name = "LinkedIn"
 icon = "fa-brands fa-linkedin fa-2x"
 weight = 1
-url = "https://www.linkedin.com/in/christian-coutinho"
+url = "https://br.linkedin.com/in/christian-coutinho"
 
 # Os links abaixo (GitHub, Gitlab, Twitter/X, Medium) estavam com placeholders
 # "johndoe" do template original — comentados até você confirmar os handles reais.
@@ -126,115 +240,3 @@ weight = 6
 url = "https://chcoutinho.com/index.xml"  # corrigido: era "myhugosite.com" (placeholder do exemplo)
 rel = "alternate"
 type = "application/rss+xml"
-
-[languages.pt-br]
-label = ":brazil:"
-title = "Chris Coutinho"
-
-[languages.pt-br.params]
-author = "Christian Coutinho"
-info = "Cybersecurity Professional"  # AJUSTAR
-description = "Site pessoal de Christian Coutinho"  # AJUSTAR
-keywords = "CISO,cybersecurity,pessoal"
-
-[[languages.pt-br.menu.main]]
-name = "Sobre"
-weight = 1
-url = "about/"
-
-[[languages.pt-br.menu.main]]
-name = "Experiência"
-weight = 2
-url = "experience/"
-
-[[languages.pt-br.menu.main]]
-name = "Blog"
-weight = 3
-url = "posts/"
-
-[[languages.pt-br.menu.main]]
-name = "Projetos"
-weight = 4
-url = "projects/"
-
-[[languages.pt-br.menu.main]]
-name = "Contato"
-weight = 5
-url = "contact/"
-
-[languages.en]
-label = ":uk:"
-title = "Chris Coutinho"
-
-[languages.en.params]
-author = "Christian Coutinho"
-info = "Cybersecurity Professional"
-description = "Christian Coutinho's personal website"
-keywords = "CISO,cybersecurity,personal"
-
-[[languages.en.menu.main]]
-name = "About"
-weight = 1
-url = "about/"
-
-[[languages.en.menu.main]]
-name = "Experience"
-weight = 2
-url = "experience/"
-
-[[languages.en.menu.main]]
-name = "Blog"
-weight = 3
-url = "posts/"
-
-[[languages.en.menu.main]]
-name = "Projects"
-weight = 4
-url = "projects/"
-
-[[languages.en.menu.main]]
-name = "Contact"
-weight = 5
-url = "contact/"
-
-[languages.es]
-label = ":es:"
-title = "Chris Coutinho"
-
-[languages.es.params]
-author = "Christian Coutinho"
-info = "Profesional en Ciberseguridad"
-description = "Sitio personal de Christian Coutinho"
-keywords = "CISO,ciberseguridad,personal"
-
-[[languages.es.menu.main]]
-name = "Sobre mí"
-weight = 1
-url = "about/"
-
-[[languages.es.menu.main]]
-name = "Experiencia"
-weight = 2
-url = "experience/"
-
-[[languages.es.menu.main]]
-name = "Blog"
-weight = 3
-url = "posts/"
-
-[[languages.es.menu.main]]
-name = "Proyectos"
-weight = 4
-url = "projects/"
-
-[[languages.es.menu.main]]
-name = "Contacto"
-weight = 5
-url = "contact/"
-
-# NOTA: menus e metadados dos 3 idiomas (pt-br, en, es) já estão prontos.
-# O CONTEÚDO (posts, about, projects) ainda existe só no idioma em que você
-# escrever cada arquivo. Sem tradução do conteúdo, um visitante que mudar
-# pro idioma en/es vai ver menu traduzido mas páginas em branco/404 até
-# você criar os arquivos correspondentes (ex: content/en/about.md,
-# content/es/about.md). Ver seção abaixo sobre estrutura de conteúdo.
